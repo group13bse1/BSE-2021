@@ -1,4 +1,4 @@
-money_entered1 = input("Enter an amount to make change for")
+money_entered1 = input("Enter an amount to make change for \n")
 money_entered = float(money_entered1)
 print("Your change is...\n \n")
 
