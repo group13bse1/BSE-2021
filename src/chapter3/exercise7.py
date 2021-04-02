@@ -13,7 +13,7 @@ try:
         else:
             choice = "Sure, I can work with this"
     elif(location == "kampala"):
-        if(payment < 1000000):
+        if(payment < 10000000):
             choice = "No way!"
         else:
             choice = "Sure, I can work with this"
