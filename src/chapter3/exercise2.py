@@ -1,4 +1,6 @@
+# ask the user to input hours
 hours = input('Enter Hours \n')
+#ask the user to input the rate
 rate = input('Enter Rate\n')
 try:
     hours = int(hours)

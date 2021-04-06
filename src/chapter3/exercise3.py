@@ -1,3 +1,4 @@
+# Ask the user to input the score
 score = input("enter score between 0.0 and 1.0 \n")
 try:
     score = float(score)
