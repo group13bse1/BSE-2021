@@ -1,4 +1,5 @@
 age = input("enter your age \n")
+
 try:
     age = int(age)
     if (age >= 18):

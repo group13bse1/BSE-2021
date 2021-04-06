@@ -1,4 +1,6 @@
+# fisrt we get the number of people from the user
 people = input("enter number of guests \n")
+# we use the try methord to prevent the program from crashing if the user puts a string
 try:
     people = int(people)
     if(people > 0 and people <= 50):
@@ -9,6 +11,7 @@ try:
         price = 15000
     elif(people > 200):
         price = 20000
-    print(price)
+    #to out put dollar sign used " '${}'.format() " methord
+    print('${}'.format(price))
 except:
     print("Error, not valid")
