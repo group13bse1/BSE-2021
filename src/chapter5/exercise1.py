@@ -7,11 +7,9 @@ while random_number == 1:
     if len(value_to_be_checked) == 0:
         print('bad data')
     elif string.lower(value_to_be_checked) == "done":
-        return 'end_program'
     else:
         try:
-            value_to_be_checked = float(value_to_be_checked)
-            return value_to_be_checked
+            value_to_be_checked = float(value_to_be_checked
         except:
             print('bad data')
 
