@@ -9,7 +9,7 @@ def CalculateGallons(a, b):
     b = float(b)
     gallonValue = a - b
     if gallonValue < 0:
-        gallonValue = (gallonValue * -1) + 1000000000
+        gallonValue = (1000000000 - b) + a
     calculatedGallonValue = float(gallonValue / 10)
     return calculatedGallonValue
 
@@ -43,28 +43,46 @@ def fillWithZeros(a):
     turnToString = str(a)
     completeFill = turnToString.zfill(9)
     return completeFill
+
+errorList = [] #catch error numbers. but then what do we do with them??
+
+
+
 while True:
-    customerCode = input("Enter customer code")
+    customerCode = input("Enter customer code:\n")
     if(customerCode.lower() == 'r') or (customerCode.lower() == 'c') or (customerCode.lower() == 'i'):
-        print('run this')
-        begMeterReading = input('Enter beginning meter reading:')
-        endMeterReading = input('Enter ending meter reading:\n')
-        caculatedGallonsReading = CalculateGallons(endMeterReading, begMeterReading)
-        amountBilled = billCustomer(customerCode, caculatedGallonsReading)
+        innitialBegMeterReading = input('Enter beginning meter reading:\n')
+        innitialEndMeterReading = input('Enter ending meter reading: \n')
+        begMeterReading = float(innitialBegMeterReading)
+        endMeterReading = float(innitialEndMeterReading)
+        # we will try to catch errors. create a unique code to print them??
+        if (begMeterReading < 0) or (len(innitialBegMeterReading) > 9) or (begMeterReading > 999999999):
+            errorList.append(begMeterReading)
+            print('You entered a false figure: \n Starting a fresh:\n')
+            continue
+        if (endMeterReading < 0) or (len(innitialEndMeterReading) > 9) or (endMeterReading > 999999999):
+            errorList.append(endMeterReading)
+            print('You entered a false figure: \n Starting a fresh:\n')
+            continue
+        calculatedGallonsReading = CalculateGallons(endMeterReading, begMeterReading)
+        amountBilled = billCustomer(customerCode, calculatedGallonsReading)
         # formating figures for display
         begMeterReading = fillWithZeros(begMeterReading)
         endMeterReading = fillWithZeros(endMeterReading)
-        formatedGallons = fillWithZeros(caculatedGallonsReading)
+        # formatedGallons = fillWithZeros(calculatedGallonsReading)
         formatedAmountBilled = "${:,.2f}".format(amountBilled)
         print(
             f'\n'
             f'Customer code: {customerCode}'
             f'\nBeginning meter reading: {begMeterReading} '
             f'\nEnding meter reading: {endMeterReading}  '
-            f'\nGallons of water used: {formatedGallons}'
-            f'\nAmount billed: {formatedAmountBilled}  \n'
+            f'\nGallons of water used: {calculatedGallonsReading}'
+            f'\nAmount billed:\t {formatedAmountBilled}  \n'
         )
-
+    elif customerCode == 'showERRORS':
+        for i in errorList:
+            print(i)
+        break
     else:
 
         break
