@@ -9,7 +9,7 @@ def CalculateGallons(a, b):
     b = float(b)
     gallonValue = a - b
     if gallonValue < 0:
-        gallonValue = gallonValue * -1
+        gallonValue = (gallonValue * -1) + 1000000000
     calculatedGallonValue = float(gallonValue / 10)
     return calculatedGallonValue
 
@@ -51,6 +51,9 @@ while True:
         endMeterReading = input('Enter ending meter reading:\n')
         caculatedGallonsReading = CalculateGallons(endMeterReading, begMeterReading)
         amountBilled = billCustomer(customerCode, caculatedGallonsReading)
+        # formating figures for display
+        begMeterReading = fillWithZeros(begMeterReading)
+        endMeterReading = fillWithZeros(endMeterReading)
         formatedGallons = fillWithZeros(caculatedGallonsReading)
         formatedAmountBilled = "${:,.2f}".format(amountBilled)
         print(
