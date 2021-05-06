@@ -4,7 +4,7 @@
 # AKANDWANAHO NICKSON 2020/BSE/006/PS
 
 # program functions
-def CalculateGallons(a, b):
+def calculateGallons(a, b):
     a = float(a)
     b = float(b)
     gallonValue = a - b
@@ -64,7 +64,7 @@ while True:
             errorList.append(endMeterReading)
             print('You entered a false figure: \n Starting a fresh:\n')
             continue
-        calculatedGallonsReading = CalculateGallons(endMeterReading, begMeterReading)
+        calculatedGallonsReading = calculateGallons(endMeterReading, begMeterReading)
         amountBilled = billCustomer(customerCode, calculatedGallonsReading)
         # formating figures for display
         begMeterReading = fillWithZeros(begMeterReading)
