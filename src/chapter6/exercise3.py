@@ -14,7 +14,9 @@ def count(word, letter):
     print(countingNumber)
 
 # main program
-word = input('enter word \n')
-letter = input('enter the letter to be counted \n')
+# changed the variables word and letter to wor and lette because
+# passing values to a function is confusing at first
+wor = input('enter word \n')
+lette = input('enter the letter to be counted \n')
 # using/calling the function count
-count(word, letter)
+count(wor, lette)
