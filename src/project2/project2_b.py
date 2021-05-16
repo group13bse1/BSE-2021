@@ -35,10 +35,21 @@ def process_file(fileObject):
             print('You entered false value, try again')
     counter = 0
     total = 0
-    country = None
+    #country = None
+    lowestPercent = None
+    highestPercent = 0
     for line in fileObject:
         if (line.find(incomeIs) != -1) and (line.find(yearEnterd) != -1):
-            print(line.strip())
+            country = line[:50]
+            print(len(country))
+            country = country.strip()
+            vaccine = line[56:58]
+            vaccine = vaccine.strip()
+            vaccine = float(vaccine)
+            print(len(country))
+            #len(country)
+            line = line.strip()
+            #print(country)
 
 
 selectedFile = open_file()
