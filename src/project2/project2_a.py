@@ -1,26 +1,46 @@
 # MATSIKO BRUNO 2020/BSE/165/PS
-# DAVID NYAMIYALE 2020/BSE/057/PS
+# DAVID NYAMUTALE 2020/BSE/057/PS
 # MAWANDA DENNIS 2020/BSE/155/PS
 # AKANDWANAHO NICKSON 2020/BSE/006/PS
 
-# create loop that contiously prompts user to enter the correct file
+# function to help with the year
+def clean_the_year():
+    while True:
+        year = input('Enter the year\n')
+        if year == '' or year.upper() == 'ALL':
+            break
+        else:
+            try:
+                years = int(year)
+                if (len(year) < 4) or (years > 1979 and years < 2013):
+                    break
+                else:
+                    print('The year you entered is out of range, try again')
+            except:
+                print('Invalid format, try again using digits')
+    return year
+#clean_the_year() end point
+# create loop that contiously prompts user to enter (correct) file name
 while True:
-    fileName = input('Enter the name of file with .txt extension to save into: \n')
+    fileName = input('Enter file name with \'.txt\':\n')
     fileName = fileName.strip()
     nameLength = len(fileName)
-    if nameLength < 4:
-        print('please include the extension .txt at the end of file name \n')
+    if nameLength < 5:
+        print('File name too short to meet requirements')
     elif fileName.find('.txt', nameLength-4) == -1:
-        print('please include the extension .txt at the end of file name \n')
+        print('Include \'.txt\' at the end of file name \n')
+        # include original file otherwise it will be overwritten
+    elif fileName =='measles.txt':
+        print('Sorry this name is reserved use a different name')
     else:
         break
 #
 
-# To be pythonic MUST try
+# To be pythonic we MUST try
 try:
-    # Read the measles file
+    # open file(in write mode) entered by user
     outPutFile = open(fileName, 'w')
-    requiredYear = input('Enter the year: \n')
+    requiredYear = clean_the_year()
     fileobject = open('measles.txt')
     for line in fileobject:
         line = line.strip()
