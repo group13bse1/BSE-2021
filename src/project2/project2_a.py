@@ -31,7 +31,7 @@ while True:
         print('Include \'.txt\' at the end of file name \n')
         # include original file otherwise it will be overwritten
     elif fileName =='measles.txt':
-        print('Sorry this name is reserved use a different name')
+        print('Sorry this name is reserved for a different use')
     else:
         break
 #
