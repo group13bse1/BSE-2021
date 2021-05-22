@@ -12,7 +12,9 @@ def clean_the_year():
         else:
             try:
                 years = int(year)
-                if (len(year) < 4) or (years > 1979 and years < 2013):
+                if year.startswith('3') or year.startswith('4') or year.startswith('5') or year.startswith('6') or year.startswith('7') or year.startswith('8') or year.startswith('9') or year.startswith('0'):
+                    print('The year you entered is very ridiculous')
+                elif (len(year) < 4) or (years > 1979 and years < 2013):
                     break
                 else:
                     print('The year you entered is out of range, try again')
